@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: ; */
+
+}
+
+input {
+    max-width: 300px;
+    width: 100%;
+    height: 49px;
+    border: 0px;
+    border-bottom: 2px solid white;
+    outline: none;
+}
+
+button {
+    height: 53px;
+    width: 151px;
+    background-color: black;
+    color: white;
+}
+
+.weather-card {
+    background-color: white;
+    border-radius: 6px;
+    padding: 16px;
+
+
+}
+
+.city-country-row {
+    display: flex;
+    gap: 12px;
+}
+
+.city {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.country-tag {
+    background-color: rgb(230, 166, 47);
+    color: #fff;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.temprature-row {
+    display: flex;
+    padding-top: 16px;
+}
+
+.temprature {
+    font-size: 56px;
+    font-weight: 600;
+}
+
+.temp-unit {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.user-input {
+    display: flex;
+    gap: 20px;
+}
+.weather-symbol {
+    padding-top: 16px;
+    font-size: 35px;
+
+}
+.weather-type {
+    padding-top: 12px;
+    font-size: 28px;
+}
