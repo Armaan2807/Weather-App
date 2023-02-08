@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="weather.css">
+    <link rel="stylesheet" href="weather.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="head">
-            <h1>Weather App</h1>
+      <div class="head">
+        <h1>Weather App</h1>
+      </div>
+      <div class="user-input">
+        <input
+          type="text"
+          id="location-input"
+          placeholder="Search for a City."
+        />
+        <button onclick="fetchWeather()">Submit</button>
+      </div>
+      <div class="weather-card">
+        <div class="city-country-row">
+          <div class="city">Dehradun</div>
+          <div class="country-tag">IN</div>
         </div>
-        <div class="user-input">
-            <input type="text" id="location-input" placeholder="Search for a City.">
-            <button>Submit</button>
-
+        <!-- Temprature Row -->
+        <div class="temprature-row">
+          <span class="temprature">18</span>
+          <span class="temp-unit">&deg;C</span>
         </div>
-        <div class="weather-card">
-            <div class="city-country-row">
-                <div class="city">
-                    Dehradun
-                </div>
-                <div class="country-tag">
-                    IN
-                </div>
-            </div>
-            <!-- Temprature Row -->
-            <div class="temprature-row">
-                <span class="temprature">18</span>
-                <span class="temp-unit">&deg;C</span>
-            </div>
-            <!-- Weather Symbol -->
-            <div class="weather-symbol">
-                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-moon"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
-                </svg>
-            </div>
-            <!-- Weather type -->
-            <div class="weather-type">
-                Clear Sky
-            </div>
+        <!-- Weather Symbol -->
+        <div class="weather-symbol">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="46"
+            height="46"
+            fill="currentColor"
+            class="bi bi-moon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"
+            />
+          </svg>
         </div>
+        <!-- Weather type -->
+        <div class="weather-type">Clear Sky</div>
+      </div>
     </div>
-</body>
 
+    <script>
+      let inputVal = "Dehradun";
+      const apiKey = "4d8fb5b93d4af21d66a2948710284366";
+
+      function fetchWeather() {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const { main, name, sys, weather } = data;
+            const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`;
+          });
+      }
+    </script>
+  </body>
 </html>
