@@ -18,6 +18,7 @@
           type="text"
           id="location-input"
           placeholder="Search for a City."
+          onkeyup="userCityName(event)"
         />
         <button onclick="fetchWeather()">Submit</button>
       </div>
@@ -52,7 +53,7 @@
     </div>
 
     <script>
-      let inputVal = "Dehradun";
+      let inputVal = "";
       const apiKey = "4d8fb5b93d4af21d66a2948710284366";
 
       function fetchWeather() {
@@ -65,6 +66,9 @@
             const { main, name, sys, weather } = data;
             const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`;
           });
+      }
+      function userCityName(event){
+        inputVal=event.target.value
       }
     </script>
   </body>
