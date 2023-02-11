@@ -25,15 +25,16 @@
       <div class="weather-card">
         <div class="city-country-row">
           <div class="city" id="cityId"></div>
-          <div class="country-tag">IN</div>
+          <div class="country-tag" id="countryId">--</div>
         </div>
         <!-- Temprature Row -->
         <div class="temprature-row">
-          <span class="temprature" id="tempId">18</span>
+          <span class="temprature" id="tempId">--</span>
           <span class="temp-unit">&deg;C</span>
         </div>
         <!-- Weather Symbol -->
         <div class="weather-symbol">
+          <img src=`${icon}` alt="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="46"
@@ -48,12 +49,13 @@
           </svg>
         </div>
         <!-- Weather type -->
-        <div class="weather-type">Clear Sky</div>
+        <div class="weather-type" id="weatherType">-- --</div>
       </div>
     </div>
 
     <script>
       let inputVal = "";
+      let icon="";
       const apiKey = "4d8fb5b93d4af21d66a2948710284366";
 
       function fetchWeather() {
@@ -65,7 +67,10 @@
             console.log(data);
             const { main, name, sys, weather } = data; //We are only picking main,name,sys,weather from the data.
             document.getElementById("cityId").innerHTML=name
-            const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`;
+            document.getElementById("tempId").innerHTML=main.temp
+            document.getElementById("weatherType").innerHTML=weather[0].description
+            document.getElementById("countryId").innerHTML=sys.country
+            icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`;
           });
       }
       function userCityName(event){
