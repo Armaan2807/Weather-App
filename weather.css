@@ -125,4 +125,13 @@ button {
 
 .banner-image{
     max-height: 300px;
+    z-index: -1;
+}
+
+#spinnerId{
+    /* position:absolute; */
+    position: relative;
+z-index: 100;
+top: -178px;
+left: 128px;
 }
