@@ -29,17 +29,17 @@
         />
         <button onclick="fetchWeather()">Submit</button>
       </div>
-      <div
-        class="spinner-grow text-dark"
-        role="status"
-        style="visibility: hidden; z-index: 2"
-        id="spinnerId"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
 
       <div id="bannerImage" style="visibility: visible">
-        <img class="banner-image" src="./weather.PNG" alt="" />
+        <div><img class="banner-image" src="./weather.PNG" alt="" /></div>
+        <div
+          class="spinner-grow text-dark"
+          role="status"
+          style="visibility: hidden; z-index: 100"
+          id="spinnerId"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
       <div class="weather-card" style="visibility: hidden" id="weatherCard">
         <div class="city-country-row">
