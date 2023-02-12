@@ -13,6 +13,7 @@
     align-items: center !important;
     flex-direction: column !important;
     gap: 16px;
+    padding: 24px !important;
     
 }
 .head{
