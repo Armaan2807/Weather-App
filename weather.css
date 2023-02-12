@@ -86,6 +86,7 @@ button {
 .user-input {
     display: flex;
     gap: 20px;
+    
 }
 .weather-symbol {
     padding-top: 16px;
@@ -95,4 +96,8 @@ button {
 .weather-type {
     padding-top: 12px;
     font-size: 28px;
+}
+#location-input{
+    font-size: 16px;
+    font-weight: 600;
 }
