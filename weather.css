@@ -9,20 +9,22 @@
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
     height: 100vh;
     display: flex !important;
-    justify-content: center !important; 
+    justify-content: center !important;
     align-items: center !important;
     flex-direction: column !important;
     gap: 16px;
     padding: 24px !important;
-    
+
 }
-.head{
+
+.head {
     padding-top: 104px !important;
-    padding-bottom: 3rem !important; 
+    padding-bottom: 3rem !important;
     display: flex;
     gap: 12px;
 }
-.bannerIcon{
+
+.bannerIcon {
     max-height: 66px;
     border-radius: 8px;
 }
@@ -63,8 +65,8 @@ button {
     padding: 26px !important;
     border-radius: 20px;
     background: linear-gradient(315deg, #cacaca, #f0f0f0);
-    box-shadow:  -5px -5px 10px #5a5a5a,
-                 5px 5px 10px #ffffff;
+    box-shadow: -5px -5px 10px #5a5a5a,
+        5px 5px 10px #ffffff;
 
 }
 
@@ -74,7 +76,7 @@ button {
 }
 
 .city {
-    font-size: 24px;
+    font-size: 24px; 
     font-weight: 600;
 }
 
@@ -106,32 +108,34 @@ button {
 .user-input {
     display: flex;
     gap: 10px;
-    
+
 }
+
 .weather-symbol {
     padding-top: 16px;
     font-size: 35px;
 
 }
+
 .weather-type {
     padding-top: 12px;
     font-size: 28px;
 }
-#location-input{
+
+#location-input {
     font-size: 16px;
     font-weight: 600;
     padding: 4px;
 }
 
-.banner-image{
+.banner-image {
     max-height: 300px;
-    z-index: -1;
+    z-index: -1; 
 }
 
-#spinnerId{
-    /* position:absolute; */
+#spinnerId {
     position: relative;
-z-index: 100;
-top: -178px;
-left: 128px;
+    z-index: 100;
+    top: -178px;
+    left: 128px;
 }

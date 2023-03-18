@@ -59,36 +59,35 @@
         <div class="weather-type" id="weatherType">-- --</div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <script 
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
-    ></script>
-    <script>
-      let inputVal = "";
-      let icon = "";
-      const apiKey = "4d8fb5b93d4af21d66a2948710284366";
+    ></script>  
+    <script> // SECOND SCRIPT TAG STARTS
+      let inputVal = ""; // WE HAVE GIVEN AN EMPTY STRING TO THE INPUTVAL BECAUSE THE USER WHICH WILL TYPE IS GOING TO APEAR OVER HERE
+      let icon = ""; // ICON HAS AN EMPTY STRING BECAUSE THE DATA WHICH WILL COME FROM API THERE WILL DESCRIBE THE WEATHER. EG; RAINY, CLOUDY,SUNNY 
+      const apiKey = "4d8fb5b93d4af21d66a2948710284366"; // this the secret key through which we can access the api from the unsplash account
 
       function fetchWeather() {
-        document.getElementById("spinnerId").style.visibility = "visible";
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+        document.getElementById("spinnerId").style.visibility = "visible"; // THIS LINE SHOWS THAT WHEN THE DATA IS FETCHING FROM THE API THE TIME WHICH IS BEING TAKEN THE LOADER WILL APEAR. 
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`; // THIS LINE TELLS US THAT THAT DATA WHICH WILL BE FETCHED WILL BE IS THE INPUTVAL &APIKEY. IT IS THE PATH OF API. WE ARE PROVIDING THE INPUTVAL & APIKEY  
 
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            document.getElementById("spinnerId").style.visibility = "hidden";
-            document.getElementById("bannerImage").style.display = "none";
-            document.getElementById("weatherCard").style.visibility = "visible";
+        fetch(url) // ACUTALLY HERE WE ARE FETCHING THE DATA FROM THE API
+          .then((response) => response.json()) // ONCE WE GET THE DATA FORM THE API WE ARE CONVERTING INTO JSON FORMAT.
+          .then((data) => { // ONCE THE DATA IS CONVERTED INTO JSON FORMAT THEN WE CAN PERFORM ANY OPERATION.S
+            document.getElementById("spinnerId").style.visibility = "hidden"; // THE SPINNER WILL HIDE WHEN THE DATA HAS ARRIVED
+            document.getElementById("bannerImage").style.display = "none"; // THE BANNERIMG WILL BE REMOVED WHEN THE DATA HAS ARRIVED.
+            document.getElementById("weatherCard").style.visibility = "visible"; // THE WEATHER CARD WILL BE VISIBLE WHEN THE DATA HAS COME.
             console.log(data);
             const { main, name, sys, weather } = data; //We are only picking main,name,sys,weather from the data.
-            document.getElementById("cityId").innerHTML = name;
-            document.getElementById("tempId").innerHTML = main.temp;
-            document.getElementById("weatherType").innerHTML =
-              weather[0].description;
-            document.getElementById("countryId").innerHTML = sys.country;
+            document.getElementById("cityId").innerHTML = name; // THE CITY/STATE NAME WILL BE SHOWN.
+            document.getElementById("tempId").innerHTML = main.temp; // THE TEMP WILL BE SHOWN.
+            document.getElementById("weatherType").innerHTML = weather[0].description; // WE ARE ASIGNING THE DESCRIPTION OF THE WEATHER. EG; WINDY,CLOWDY,SUNY
+            document.getElementById("countryId").innerHTML = sys.country; // THE COUNTRY NAME WILL BE SHOWN IN THE WEBSITE.
 
-            icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`;
-            document.getElementById("iconId").setAttribute("src", icon);
+            icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`; // WE ARE FECTHING THE WEATHER ICON FORM THE API.
+            document.getElementById("iconId").setAttribute("src", icon); // WE ARE ASIGNING THAT ICON TO OUR HTML IMAGE TAG.
           });
       }
       function userCityName(event) {
